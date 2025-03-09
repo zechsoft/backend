@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
+const sessionRoutes = require("./routes/sessionRoutes");
 const auth = require("./middleware/auth");
 
 dotenv.config();
@@ -21,6 +22,7 @@ connectDB();
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/sessions", sessionRoutes);
 
 // Protected test route
 app.get("/api/protected", auth, (req, res) => {

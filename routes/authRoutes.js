@@ -9,10 +9,13 @@ router.post("/register", authController.register);
 // Login route
 router.post("/login", authController.login);
 
+// Refresh token route
+router.post("/refresh-token", authController.refreshToken);
+
+// Logout route
+router.post("/logout", authController.logout);
+
 // Get current user profile
 router.get("/me", auth, authController.getUserProfile);
-
-// Validate token route (new)
-router.post("/validate-token", authController.validateToken);
 
 module.exports = router;

@@ -6,6 +6,12 @@ const auth = require("../middleware/auth");
 // Get all users (admin only)
 router.get("/", auth, userController.getAllUsers);
 
+// Get users by role (admin only)
+router.get("/role", auth, userController.getUsersByRole);
+
+// Get client users for public display (no auth required)
+router.get("/clients/public", userController.getPublicClientUsers);
+
 // Get user by ID (admin or own profile)
 router.get("/:userId", auth, userController.getUserById);
 
